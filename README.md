@@ -161,4 +161,7 @@ There are no known issues.
 
 ## Resources
 
+- [DoctrineMigrationsBundle](https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html)
+- [DoctrineFixturesBundle](https://symfony.com/doc/master/bundles/DoctrineFixturesBundle/index.html)
+
 [[table of contents]](#table-of-contents)

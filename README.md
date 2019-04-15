@@ -7,6 +7,8 @@ Docker-symfony gives everything we need for developing Symfony application. This
 - [Installation](#installation)
     - [Install DoctrineMigrationsBundle](#install-doctrinemigrationsbundle)
     - [Install DoctrineFixturesBundle](#install-doctrinefixturesbundle)
+    - [Install MakerBundle](#install-makerbundle)
+    - [Install KnpTimeBundle](#install-knptimebundle)
 - [Development](#development)
     - [Using database migration](#using-database-migration)
 - [Troubleshooting](#troubleshooting)
@@ -42,7 +44,9 @@ docker-compose up -d
 3. Install Symfony
 
 ```bash
+# Run this command to enter into container. If you are into the container, don't need to run it.
 docker-compose exec php bash
+
 ./install-symfony.sh
 ```
 
@@ -53,7 +57,9 @@ docker-compose exec php bash
 First, install the bundle with composer:
 
 ```bash
+# Run this command to enter into container. If you are into the container, don't need to run it.
 docker-compose exec php bash
+
 composer require doctrine/doctrine-migrations-bundle
 ```
 
@@ -79,7 +85,9 @@ public function registerBundles()
 First, install the bundle with composer:
 
 ```bash
+# Run this command to enter into container. If you are into the container, don't need to run it.
 docker-compose exec php bash
+
 composer require --dev doctrine/doctrine-fixtures-bundle nelmio/alice ^2.1.4
 ```
 
@@ -92,9 +100,75 @@ Finally, be sure to enable the bundle in AppKernel.php by including the followin
 
 // ...
 // registerBundles()
-if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
+if ('dev' === $this->getEnvironment()) {
     // ...
     $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+}
+```
+    
+[[table of contents]](#table-of-contents)
+
+### Install MakerBundle
+
+First, install the bundle with composer:
+
+```bash
+# Run this command to enter into container. If you are into the container, don't need to run it.
+docker-compose exec php bash
+
+composer require symfony/orm-pack
+composer require --dev symfony/maker-bundle
+```
+
+If everything worked, the MakerBundle can now be found at symfony/maker-bundle.
+
+Finally, be sure to enable the bundle in AppKernel.php by including the following:
+
+```php
+// app/AppKernel.php
+
+// ...
+// registerBundles()
+if ('dev' === $this->getEnvironment()) {
+    // ...
+    $bundles[] = new Symfony\Bundle\MakerBundle\MakerBundle();
+}
+```
+
+To see all make commands, run:
+
+```bash
+# Run this command to enter into container. If you are into the container, don't need to run it.
+docker-compose exec php bash
+
+sf3 list make
+```
+    
+[[table of contents]](#table-of-contents)
+
+### Install KnpTimeBundle
+
+First, install the bundle with composer:
+
+```bash
+# Run this command to enter into container. If you are into the container, don't need to run it.
+docker-compose exec php bash
+
+composer require knplabs/knp-time-bundle
+```
+
+If everything worked, the MakerBundle can now be found at symfony/maker-bundle.
+
+Finally, be sure to enable the bundle in AppKernel.php by including the following:
+
+```php
+// app/AppKernel.php
+public function registerBundles()
+{
+    $bundles = array(
+        //...
+        new Knp\Bundle\TimeBundle\KnpTimeBundle(),
+    );
 }
 ```
     
@@ -163,5 +237,11 @@ There are no known issues.
 
 - [DoctrineMigrationsBundle](https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html)
 - [DoctrineFixturesBundle](https://symfony.com/doc/master/bundles/DoctrineFixturesBundle/index.html)
+- [KnpTimeBundle](https://github.com/KnpLabs/KnpTimeBundle)
+- [The Symfony MakerBundle](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html)
+- [Doctrine ORM annotations reference](https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/annotations-reference.html)
+- [StofDoctrineExtensionsBundle](https://symfony.com/doc/master/bundles/StofDoctrineExtensionsBundle/index.html)
+- [Twig Extensions](https://twig-extensions.readthedocs.io/en/latest/)
+- [KnpPaginatorBundle](https://github.com/KnpLabs/KnpPaginatorBundle)
 
 [[table of contents]](#table-of-contents)

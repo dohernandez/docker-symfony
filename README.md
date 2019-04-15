@@ -44,7 +44,7 @@ docker-compose up -d
 3. Install Symfony
 
 ```bash
-# Run this command to enter into container. If you are into the container, don't need to run it.
+# Run this command to enter into the container. If you are into the container, don't need to run it.
 docker-compose exec php bash
 
 ./install-symfony.sh
@@ -57,7 +57,7 @@ docker-compose exec php bash
 First, install the bundle with composer:
 
 ```bash
-# Run this command to enter into container. If you are into the container, don't need to run it.
+# Run this command to enter into the container. If you are into the container, don't need to run it.
 docker-compose exec php bash
 
 composer require doctrine/doctrine-migrations-bundle
@@ -85,7 +85,7 @@ public function registerBundles()
 First, install the bundle with composer:
 
 ```bash
-# Run this command to enter into container. If you are into the container, don't need to run it.
+# Run this command to enter into the container. If you are into the container, don't need to run it.
 docker-compose exec php bash
 
 composer require --dev doctrine/doctrine-fixtures-bundle nelmio/alice ^2.1.4
@@ -113,7 +113,7 @@ if ('dev' === $this->getEnvironment()) {
 First, install the bundle with composer:
 
 ```bash
-# Run this command to enter into container. If you are into the container, don't need to run it.
+# Run this command to enter into the container. If you are into the container, don't need to run it.
 docker-compose exec php bash
 
 composer require symfony/orm-pack
@@ -138,7 +138,7 @@ if ('dev' === $this->getEnvironment()) {
 To see all make commands, run:
 
 ```bash
-# Run this command to enter into container. If you are into the container, don't need to run it.
+# Run this command to enter into the container. If you are into the container, don't need to run it.
 docker-compose exec php bash
 
 sf3 list make
@@ -151,7 +151,7 @@ sf3 list make
 First, install the bundle with composer:
 
 ```bash
-# Run this command to enter into container. If you are into the container, don't need to run it.
+# Run this command to enter into the container. If you are into the container, don't need to run it.
 docker-compose exec php bash
 
 composer require knplabs/knp-time-bundle
